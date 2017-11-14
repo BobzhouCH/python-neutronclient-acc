@@ -226,7 +226,7 @@ class CreatePort(neutronV20.CreateCommand, UpdatePortSecGroupMixin,
     """Create a port for a given tenant."""
 
     resource = 'port'
-
+    # modify fot new vnic_type virtio-acc  by bob
     def add_known_arguments(self, parser):
         _add_updatable_args(parser)
         parser.add_argument(
@@ -246,14 +246,14 @@ class CreatePort(neutronV20.CreateCommand, UpdatePortSecGroupMixin,
         parser.add_argument(
             '--vnic-type',
             metavar='<direct | direct-physical | macvtap '
-                    '| normal | baremetal>',
+                    '| normal | baremetal| virtio-acc>',
             choices=['direct', 'direct-physical', 'macvtap',
-                     'normal', 'baremetal'],
+                     'normal', 'baremetal', 'virtio-acc'],
             help=_('VNIC type for this port.'))
         parser.add_argument(
             '--vnic_type',
             choices=['direct', 'direct-physical', 'macvtap',
-                     'normal', 'baremetal'],
+                     'normal', 'baremetal', 'virtio-acc'],
             help=argparse.SUPPRESS)
         parser.add_argument(
             '--binding-profile',
